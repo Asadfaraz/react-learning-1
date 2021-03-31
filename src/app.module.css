@@ -11,6 +11,7 @@
 @media screen and (min-width: 768px) {
   .booklist {
     grid-template-columns: repeat(3, 1fr);
+    align-items: start;
   }
 }
 
@@ -28,5 +29,9 @@
   color: #617d98;
   font-size: 12px;
   margin-top: 3px;
-  letter-spacing: 2px;
+}
+
+.book p {
+  margin-top: 5px;
+  font-size: 14px;
 }
