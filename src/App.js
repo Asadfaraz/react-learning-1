@@ -2,46 +2,38 @@ import classes from "./app.module.css";
 
 // Setting vars
 // Title and Author
-const firstBook = {
-  img:
-    "https://images-na.ssl-images-amazon.com/images/I/81eB%2B7%2BCkUL._AC_UL200_SR200,200_.jpg",
-  title: "I Love You to the Moon and Back",
-  author: "Amelia Hepworth",
-};
-
-const secondBook = {
-  img:
-    "https://images-na.ssl-images-amazon.com/images/I/91KSzxuamCL._AC_UL200_SR200,200_.jpg",
-  title: "Llama Llama Easter Egg",
-  author: "Anna Dewdney",
-};
+const books = [
+  {
+    id: 1,
+    img:
+      "https://images-na.ssl-images-amazon.com/images/I/81eB%2B7%2BCkUL._AC_UL200_SR200,200_.jpg",
+    title: "I Love You to the Moon and Back",
+    author: "Amelia Hepworth",
+  },
+  {
+    id: 2,
+    img:
+      "https://images-na.ssl-images-amazon.com/images/I/91KSzxuamCL._AC_UL200_SR200,200_.jpg",
+    title: "Llama Llama Easter Egg",
+    author: "Anna Dewdney",
+  },
+  {
+    id: 3,
+    img:
+      "https://images-na.ssl-images-amazon.com/images/I/717Ligg2fOL._AC_UL200_SR200,200_.jpg",
+    title: "The Song of Achilles: A Novel",
+    author: "Madeline Miller",
+  },
+];
 
 // Main Component
 function App() {
   return (
     <div className="App">
       <section className={classes.booklist}>
-        <Book
-          img={firstBook.img}
-          title={firstBook.title}
-          author={firstBook.author}
-        >
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged.
-          </p>
-        </Book>
-
-        {/* second book */}
-        <Book
-          img={secondBook.img}
-          title={secondBook.title}
-          author={secondBook.author}
-        />
+        {books.map((book) => {
+          return <Book key={book.id} {...book}></Book>;
+        })}
       </section>
     </div>
   );
@@ -50,14 +42,13 @@ function App() {
 //Book component but here in the file
 const Book = (props) => {
   // destructuring props
-  const { img, title, author, children } = props;
+  const { img, title, author } = props;
 
   return (
     <article className={classes.book}>
       <img src={img} alt="" />
       <h1>{title}</h1>
       <h4>{author.toUpperCase()}</h4>
-      {children}
     </article>
   );
 };
