@@ -12,3 +12,7 @@ In the Third Commit I added Props and Children Props to components
 
 In the forth commit I added the items as a dynamic list.
 I Learn how to extract properties from objects using spread operators.
+
+## Forth Commit info
+
+Separate components into different files. Also added simple click event listeners on Buttons.
